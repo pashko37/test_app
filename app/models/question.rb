@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   has_many :answers
-	belongs_to :quiz
+  belongs_to :quiz
 
   MIN_QUESTION_LENGTH = 3
   MAX_QUESTION_LENGTH = 25

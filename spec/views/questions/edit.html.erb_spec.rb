@@ -1,18 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe "questions/edit", type: :view do
+RSpec.describe 'questions/edit', type: :view do
   before(:each) do
     @question = assign(:question, Question.create!(
-      :matter => "MyString"
-    ))
+                                    matter: 'MyString'
+                                  ))
   end
 
-  it "renders the edit question form" do
+  it 'renders the edit question form' do
     render
 
-    assert_select "form[action=?][method=?]", question_path(@question), "post" do
-
-      assert_select "input[name=?]", "question[matter]"
+    assert_select 'form[action=?][method=?]', question_path(@question), 'post' do
+      assert_select 'input[name=?]', 'question[matter]'
     end
   end
 end

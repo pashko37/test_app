@@ -1,5 +1,5 @@
 ActiveAdmin.register Quiz do
-  permit_params :title,:desc
+  permit_params :title, :desc
 
   index do
     selectable_column
@@ -16,5 +16,4 @@ ActiveAdmin.register Quiz do
     end
     f.actions
   end
-
 end

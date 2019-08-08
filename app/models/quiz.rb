@@ -8,5 +8,4 @@ class Quiz < ApplicationRecord
   validates :title, length: { maximum: MAX_QUIZ_TITLE_LENGTH }
   validates :desc, presence: true
   validates :desc, length: { maximum: MAX_QUIZ_DESC_LENGTH }
-
 end

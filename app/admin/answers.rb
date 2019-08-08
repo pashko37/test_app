@@ -1,5 +1,5 @@
 ActiveAdmin.register Answer do
-  permit_params :matter,:question_id
+  permit_params :matter, :question_id
 
   index do
     selectable_column
@@ -12,9 +12,8 @@ ActiveAdmin.register Answer do
   form do |f|
     f.inputs do
       f.input :matter
-      f.input :question_id ,as: :select, collection: Question.all.map {|q| [q.matter, q.id]}
+      f.input :question_id, as: :select, collection: Question.all.map { |q| [q.matter, q.id] }
     end
     f.actions
   end
-
 end
