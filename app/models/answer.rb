@@ -4,6 +4,10 @@ class Answer < ApplicationRecord
 
   belongs_to :question
 
+  CHECK_STATUS = %w[correct incorrect].freeze
+  enum check_status: CHECK_STATUS
+
   validates :matter, presence: true
   validates :matter, length: { minimum: MIN_ANSWER_LENGTH, maximum: MAX_ANSWER_LENGTH }
+  validates :check_status, presence: true, inclusion: { in: CHECK_STATUS }
 end

@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Matter:</strong>
-  <%= @quiz.title %>
-  <%= @quiz.desc %>
+  <% @a.each do |quiz| %>
+    <tr>
+      <td><%= quiz.matter %></td>
+      <td><%= quiz.answers.map { |e| e.matter } %></td>
+    </tr>
+  <% end %>
 </p>
-
 <%= link_to 'Back', quizzes_path %>

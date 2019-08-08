@@ -6,6 +6,11 @@ class QuizzesController < ApplicationController
   end
 
   def show
+    @a = @quiz.questions.map { |q| q }
+    @b = @a.map { |e| e.answers.map(&:matter) }
+  end
+
+  def check_answer
 
   end
 
