@@ -20,7 +20,10 @@ class QuizzesController < ApplicationController
     # @test = @ans.first.question.quiz
     current_user.add_result(@ans.first.question.quiz.title => @ans.count)
 
-    redirect_to quizzes_path
+    respond_to do |format|
+       format.html { redirect_to quizzes_path, notice: 'Quiz was successfully passed.' }
+       format.json { render :survay }
+   end
   end
 
   private
