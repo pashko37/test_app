@@ -3,7 +3,7 @@ class Question < ApplicationRecord
   belongs_to :quiz
 
   MIN_QUESTION_LENGTH = 3
-  MAX_QUESTION_LENGTH = 25
+  MAX_QUESTION_LENGTH = 125
 
   validates :matter, presence: true
   validates :matter, length: { minimum: MIN_QUESTION_LENGTH, maximum: MAX_QUESTION_LENGTH }

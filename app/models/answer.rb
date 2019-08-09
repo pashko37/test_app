@@ -1,6 +1,6 @@
 class Answer < ApplicationRecord
   MIN_ANSWER_LENGTH = 3
-  MAX_ANSWER_LENGTH = 25
+  MAX_ANSWER_LENGTH = 125
 
   belongs_to :question
 

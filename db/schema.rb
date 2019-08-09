@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2019_08_09_164941) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_08_09_164941) do
   create_table "answers", force: :cascade do |t|
     t.string "matter"
     t.integer "check_status", default: 0, null: false
-    t.integer "question_id"
+    t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_08_09_164941) do
 
   create_table "questions", force: :cascade do |t|
     t.string "matter"
-    t.integer "quiz_id"
+    t.bigint "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
@@ -63,8 +66,8 @@ ActiveRecord::Schema.define(version: 2019_08_09_164941) do
   end
 
   create_table "quizzes_users", id: false, force: :cascade do |t|
-    t.integer "quiz_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "quiz_id", null: false
+    t.bigint "user_id", null: false
     t.index ["quiz_id", "user_id"], name: "index_quizzes_users_on_quiz_id_and_user_id"
     t.index ["user_id", "quiz_id"], name: "index_quizzes_users_on_user_id_and_quiz_id"
   end
