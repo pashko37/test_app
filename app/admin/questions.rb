@@ -6,6 +6,7 @@ ActiveAdmin.register Question do
     id_column
     column :matter
     column :quiz_id
+    column :answers
     actions
   end
 

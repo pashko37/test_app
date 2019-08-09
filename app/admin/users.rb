@@ -5,6 +5,9 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :email
+    column :quiz
+    column :result
+
     actions
   end
 

@@ -7,4 +7,5 @@ class Question < ApplicationRecord
 
   validates :matter, presence: true
   validates :matter, length: { minimum: MIN_QUESTION_LENGTH, maximum: MAX_QUESTION_LENGTH }
+
 end

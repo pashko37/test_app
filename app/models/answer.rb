@@ -10,4 +10,5 @@ class Answer < ApplicationRecord
   validates :matter, presence: true
   validates :matter, length: { minimum: MIN_ANSWER_LENGTH, maximum: MAX_ANSWER_LENGTH }
   validates :check_status, presence: true, inclusion: { in: CHECK_STATUS }
+
 end

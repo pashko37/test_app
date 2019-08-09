@@ -6,6 +6,7 @@ ActiveAdmin.register Quiz do
     id_column
     column :title
     column :desc
+    column :questions
     actions
   end
 
