@@ -38,3 +38,6 @@ Style/MixinUsage:
 
 Style/Documentation:
   Enabled: false
+
+Metrics/AbcSize:
+   Max: 20

@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
   serialize :result, Array
 
-    def add_result(result)
-      self.result << result
-      self.save
-    end
+  def add_result(result)
+    self.result << result
+    save
+  end
 end

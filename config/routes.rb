@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :answers
   resources :questions
   resources :quizzes do
-  get 'survey' , controller: 'quizzes' , action: 'survey'
-end
+    get 'survey', controller: 'quizzes', action: 'survey'
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   ActiveAdmin.routes(self)

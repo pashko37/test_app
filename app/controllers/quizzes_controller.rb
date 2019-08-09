@@ -13,12 +13,12 @@ class QuizzesController < ApplicationController
   end
 
   def survey
-     @ans = params[:answers].map do |ans|
-     Answer.select{ |a| (a.id == ans.to_i) && a.check_status == 'correct' }
-  end
+    @ans = params[:answers].map do |ans|
+      Answer.select { |a| (a.id == ans.to_i) && a.check_status == 'correct' }
+    end
     @ans.flatten!
-    p @test = @ans.first.question.quiz
-    current_user.add_result( @test.title => @ans.count )
+    # @test = @ans.first.question.quiz
+    current_user.add_result(@ans.first.question.quiz.title => @ans.count)
 
     redirect_to quizzes_path
   end
