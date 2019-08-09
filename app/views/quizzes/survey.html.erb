@@ -1,11 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-  <%= form_tag(quiz_survey_path(@quiz.id), method: :get) do %>
-  <% @a.each do |quiz| %>
+<%= form_tag(quiz_survey_path(@quiz.id), method: :post) do %>
+    <% @a.each do |quiz| %>
     <tr>
-      <td><h3><%= quiz.matter %></h3></td>
-      <%= select_tag "answers[]", options_from_collection_for_select(quiz.answers, "id", "matter") %>
+        <td><h3><%= quiz.matter %></h3></td>
+        <td><%= select_tag "answers[]", options_from_collection_for_select(quiz.answers, "id", "matter") %></td>
     </tr>
-  <% end %>
-  <%= submit_tag 'Search', name: nil %>
+      <% end %>
+      <br>
+      <br>
+      <td><%= submit_tag "Save", data: { confirm: "Are you sure?" } %></td>
+
 <% end %>
