@@ -12,14 +12,15 @@ class QuizzesController < ApplicationController
   end
 
   def survey
+    @q = Quiz.find(params[:quiz_id])
     @ans = params[:answers].map do |ans|
       Answer.select { |a| (a.id == ans.to_i) && a.check_status == 'correct' }
     end
     @ans.flatten!
     if @ans.present?
-      current_user.add_result(@ans.first.question.quiz.title => @ans.count)
+      current_user.add_result(@q.title => @ans.count)
     else
-      current_user.add_result(0)
+      current_user.add_result(@q.title => 0)
     end
 
     redirect_to root_path, notice: 'Quiz was successfully passed.'
