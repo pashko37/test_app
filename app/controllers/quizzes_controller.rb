@@ -9,7 +9,6 @@ class QuizzesController < ApplicationController
   def show
     @a = @quiz.questions.map { |q| q }
     @b = @a.map { |e| e.answers.map(&:matter) }
-    render 'survey'
   end
 
   def survey
@@ -17,14 +16,14 @@ class QuizzesController < ApplicationController
       Answer.select { |a| (a.id == ans.to_i) && a.check_status == 'correct' }
     end
     @ans.flatten!
-    # @test = @ans.first.question.quiz
-    current_user.add_result(@ans.first.question.quiz.title => @ans.count)
+    if @ans.present?
+      current_user.add_result(@ans.first.question.quiz.title => @ans.count)
+    else
+      current_user.add_result(0)
+    end
 
-    respond_to do |format|
-       format.html { redirect_to quizzes_path, notice: 'Quiz was successfully passed.' }
-       format.json { render :survay }
+    redirect_to root_path, notice: 'Quiz was successfully passed.'
    end
-  end
 
   private
 

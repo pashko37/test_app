@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <% @a.each do |quiz| %>
-    <tr>
-      <td><%= quiz.matter %></td>
-      <td><%= quiz.answers.map { |e| e.matter } %></td>
-    </tr>
-  <% end %>
-</p>
-<%= link_to 'Back', quizzes_path %>
+<%= form_tag(quiz_survey_path(@quiz.id), method: :post) do %>
+    <% @a.each do |quiz| %>
+        <h3><%= quiz.matter %></h3>
+        <%= select_tag "answers[]", options_from_collection_for_select(quiz.answers, "id", "matter") %>
+      <% end %>
+      <br>
+      <br>
+      <%= submit_tag "Save" %>
+<% end %>
