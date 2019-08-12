@@ -22,7 +22,6 @@ class QuizzesController < ApplicationController
     else
       current_user.add_result(@q.title => 0)
     end
-
     redirect_to root_path, notice: 'Quiz was successfully passed.'
    end
 

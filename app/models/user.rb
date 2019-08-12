@@ -14,4 +14,8 @@ class User < ApplicationRecord
     self.result << result
     save
   end
+
+  def send_mail
+    UserMailer.with(user: self).welcome_email.deliver_now
+  end
 end
